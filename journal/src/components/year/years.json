@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_year_years",
+  "info": {
+    "displayName": "years"
+  },
+  "options": {},
+  "attributes": {
+    "name_en": {
+      "type": "string"
+    }
+  }
+}

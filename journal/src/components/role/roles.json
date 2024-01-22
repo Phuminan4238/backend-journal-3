@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_role_roles",
+  "info": {
+    "displayName": "Roles",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "header_role": {
+      "type": "string"
+    },
+    "content_role": {
+      "type": "text"
+    },
+    "content_markdown_en": {
+      "type": "richtext"
+    },
+    "content_markdown_th": {
+      "type": "richtext"
+    },
+    "header_role_th": {
+      "type": "string"
+    }
+  }
+}

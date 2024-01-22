@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "members",
+  "info": {
+    "singularName": "member",
+    "pluralName": "members",
+    "displayName": "Member",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name_en": {
+      "type": "text"
+    },
+    "surname_en": {
+      "type": "text"
+    },
+    "prefix_en": {
+      "type": "string"
+    },
+    "position_en": {
+      "type": "string"
+    },
+    "email": {
+      "type": "text"
+    },
+    "organization_en": {
+      "type": "string"
+    },
+    "usertype": {
+      "type": "enumeration",
+      "enum": [
+        "honorary_member",
+        "editor_chief",
+        "board_member",
+        "editorial_assistant"
+      ]
+    },
+    "sort": {
+      "type": "string"
+    },
+    "name_th": {
+      "type": "string"
+    },
+    "surname_th": {
+      "type": "string"
+    },
+    "prefix_th": {
+      "type": "string"
+    },
+    "organization_th": {
+      "type": "string"
+    }
+  }
+}

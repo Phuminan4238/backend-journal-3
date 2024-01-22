@@ -1,0 +1,80 @@
+{
+  "collectionName": "components_journal_journals",
+  "info": {
+    "displayName": "Journal",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "published_date": {
+      "type": "date"
+    },
+    "volumn": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    },
+    "months": {
+      "type": "enumeration",
+      "enum": [
+        "January - March",
+        "April - June",
+        "July - September",
+        "October - December"
+      ]
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "uploadfiles": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "year": {
+      "type": "string"
+    },
+    "isn": {
+      "type": "text"
+    },
+    "title_markdown": {
+      "type": "richtext"
+    },
+    "title_th": {
+      "type": "string"
+    },
+    "title_markdown_th": {
+      "type": "richtext"
+    },
+    "months_th": {
+      "type": "enumeration",
+      "enum": [
+        "month"
+      ]
+    },
+    "month": {
+      "type": "string"
+    },
+    "month_th": {
+      "type": "string"
+    }
+  }
+}

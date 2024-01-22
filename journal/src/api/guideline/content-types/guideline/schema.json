@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guidelines",
+  "info": {
+    "singularName": "guideline",
+    "pluralName": "guidelines",
+    "displayName": "Guideline",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header_en": {
+      "type": "string"
+    },
+    "guideline_en": {
+      "type": "richtext"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "role": {
+      "type": "component",
+      "repeatable": true,
+      "component": "role.roles"
+    },
+    "download_en_1": {
+      "type": "string"
+    },
+    "url_1": {
+      "type": "string"
+    },
+    "header_th": {
+      "type": "string"
+    },
+    "download_th_1": {
+      "type": "string"
+    },
+    "content_en": {
+      "type": "string"
+    },
+    "content_th": {
+      "type": "string"
+    },
+    "content_th_2": {
+      "type": "string"
+    },
+    "download_en_2": {
+      "type": "string"
+    },
+    "download_th_2": {
+      "type": "string"
+    },
+    "guideline_th": {
+      "type": "richtext"
+    }
+  }
+}

@@ -573,6 +573,50 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 50;
+      }>;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -724,43 +768,283 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
+export interface ApiContactContact extends Schema.CollectionType {
+  collectionName: 'contacts';
   info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'Contact';
     description: '';
   };
   options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
+    draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
-    code: Attribute.String & Attribute.Unique;
+    topic: Attribute.String;
+    header_en: Attribute.String;
+    content_en: Attribute.Text;
+    content_markdown: Attribute.RichText;
+    header_th: Attribute.String;
+    content_th: Attribute.Text;
+    content_markdown_th: Attribute.RichText;
+    topic_th: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
+      'api::contact.contact',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGuidelineGuideline extends Schema.CollectionType {
+  collectionName: 'guidelines';
+  info: {
+    singularName: 'guideline';
+    pluralName: 'guidelines';
+    displayName: 'Guideline';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    header_en: Attribute.String;
+    guideline_en: Attribute.RichText;
+    topic: Attribute.String;
+    role: Attribute.Component<'role.roles', true>;
+    download_en_1: Attribute.String;
+    url_1: Attribute.String;
+    header_th: Attribute.String;
+    download_th_1: Attribute.String;
+    content_en: Attribute.String;
+    content_th: Attribute.String;
+    content_th_2: Attribute.String;
+    download_en_2: Attribute.String;
+    download_th_2: Attribute.String;
+    guideline_th: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::guideline.guideline',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::guideline.guideline',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMemberMember extends Schema.CollectionType {
+  collectionName: 'members';
+  info: {
+    singularName: 'member';
+    pluralName: 'members';
+    displayName: 'Member';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name_en: Attribute.Text;
+    surname_en: Attribute.Text;
+    prefix_en: Attribute.String;
+    position_en: Attribute.String;
+    email: Attribute.Text;
+    organization_en: Attribute.String;
+    usertype: Attribute.Enumeration<
+      ['honorary_member', 'editor_chief', 'board_member', 'editorial_assistant']
+    >;
+    sort: Attribute.String;
+    name_th: Attribute.String;
+    surname_th: Attribute.String;
+    prefix_th: Attribute.String;
+    organization_th: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::member.member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::member.member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMonthMonth extends Schema.SingleType {
+  collectionName: 'months';
+  info: {
+    singularName: 'month';
+    pluralName: 'months';
+    displayName: 'Month';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name_en: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::month.month',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::month.month',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPolicyPolicy extends Schema.CollectionType {
+  collectionName: 'policies';
+  info: {
+    singularName: 'policy';
+    pluralName: 'policies';
+    displayName: 'Policy';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    topic: Attribute.String;
+    header_en: Attribute.String;
+    content_en: Attribute.Text;
+    markdown_en: Attribute.RichText;
+    role: Attribute.Component<'role.roles', true>;
+    header_th: Attribute.String;
+    markdown_th: Attribute.RichText;
+    content_th: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::policy.policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::policy.policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPublicationPublication extends Schema.CollectionType {
+  collectionName: 'publications';
+  info: {
+    singularName: 'publication';
+    pluralName: 'publications';
+    displayName: 'Publication';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    journal: Attribute.Component<'journal.journal', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::publication.publication',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::publication.publication',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTagTag extends Schema.CollectionType {
+  collectionName: 'tags';
+  info: {
+    singularName: 'tag';
+    pluralName: 'tags';
+    displayName: 'Tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    key: Attribute.String;
+    category: Attribute.Enumeration<['theme', 'month', 'year']>;
+    name_en: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUploadfileUploadfile extends Schema.CollectionType {
+  collectionName: 'uploadfiles';
+  info: {
+    singularName: 'uploadfile';
+    pluralName: 'uploadfiles';
+    displayName: 'Uploadfile';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    fileupload: Attribute.Media;
+    filename: Attribute.String;
+    filetype: Attribute.Enumeration<
+      ['publication_image', 'image', 'image_square']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::uploadfile.uploadfile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::uploadfile.uploadfile',
       'oneToOne',
       'admin::user'
     > &
@@ -782,10 +1066,18 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
+      'api::contact.contact': ApiContactContact;
+      'api::guideline.guideline': ApiGuidelineGuideline;
+      'api::member.member': ApiMemberMember;
+      'api::month.month': ApiMonthMonth;
+      'api::policy.policy': ApiPolicyPolicy;
+      'api::publication.publication': ApiPublicationPublication;
+      'api::tag.tag': ApiTagTag;
+      'api::uploadfile.uploadfile': ApiUploadfileUploadfile;
     }
   }
 }
