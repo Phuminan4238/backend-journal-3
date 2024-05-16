@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_article_articles",
+  "info": {
+    "displayName": "Articles",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "title_th": {
+      "type": "string"
+    },
+    "author_th": {
+      "type": "string"
+    },
+    "download": {
+      "type": "string"
+    },
+    "number": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    },
+    "author_en": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "enumeration",
+      "enum": [
+        "morning",
+        "noon evening"
+      ]
+    }
+  }
+}

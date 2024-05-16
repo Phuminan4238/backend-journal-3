@@ -768,6 +768,42 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAnnouncementAnnouncement extends Schema.CollectionType {
+  collectionName: 'announcements';
+  info: {
+    singularName: 'announcement';
+    pluralName: 'announcements';
+    displayName: 'Announcement';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    header: Attribute.String;
+    body: Attribute.String;
+    content: Attribute.String;
+    url: Attribute.String;
+    content2: Attribute.String;
+    content3: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::announcement.announcement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::announcement.announcement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContactContact extends Schema.CollectionType {
   collectionName: 'contacts';
   info: {
@@ -788,6 +824,7 @@ export interface ApiContactContact extends Schema.CollectionType {
     content_th: Attribute.Text;
     content_markdown_th: Attribute.RichText;
     topic_th: Attribute.String;
+    issn: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -975,6 +1012,9 @@ export interface ApiPublicationPublication extends Schema.CollectionType {
   };
   attributes: {
     journal: Attribute.Component<'journal.journal', true>;
+    title: Attribute.String;
+    issn: Attribute.String;
+    article: Attribute.Component<'article.articles', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -989,30 +1029,6 @@ export interface ApiPublicationPublication extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTagTag extends Schema.CollectionType {
-  collectionName: 'tags';
-  info: {
-    singularName: 'tag';
-    pluralName: 'tags';
-    displayName: 'Tag';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    key: Attribute.String;
-    category: Attribute.Enumeration<['theme', 'month', 'year']>;
-    name_en: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1070,13 +1086,13 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::announcement.announcement': ApiAnnouncementAnnouncement;
       'api::contact.contact': ApiContactContact;
       'api::guideline.guideline': ApiGuidelineGuideline;
       'api::member.member': ApiMemberMember;
       'api::month.month': ApiMonthMonth;
       'api::policy.policy': ApiPolicyPolicy;
       'api::publication.publication': ApiPublicationPublication;
-      'api::tag.tag': ApiTagTag;
       'api::uploadfile.uploadfile': ApiUploadfileUploadfile;
     }
   }

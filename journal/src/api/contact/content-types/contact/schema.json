@@ -35,6 +35,9 @@
     },
     "topic_th": {
       "type": "string"
+    },
+    "issn": {
+      "type": "string"
     }
   }
 }

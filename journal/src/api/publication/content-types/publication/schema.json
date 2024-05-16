@@ -16,6 +16,17 @@
       "type": "component",
       "repeatable": true,
       "component": "journal.journal"
+    },
+    "title": {
+      "type": "string"
+    },
+    "issn": {
+      "type": "string"
+    },
+    "article": {
+      "type": "component",
+      "repeatable": true,
+      "component": "article.articles"
     }
   }
 }

@@ -1,5 +1,23 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ArticleArticles extends Schema.Component {
+  collectionName: 'components_article_articles';
+  info: {
+    displayName: 'Articles';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    title_th: Attribute.String;
+    author_th: Attribute.String;
+    download: Attribute.String;
+    number: Attribute.Integer;
+    url: Attribute.String;
+    author_en: Attribute.String;
+    keywords: Attribute.Enumeration<['morning', 'noon evening']>;
+  };
+}
+
 export interface JournalJournal extends Schema.Component {
   collectionName: 'components_journal_journals';
   info: {
@@ -7,9 +25,6 @@ export interface JournalJournal extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    author: Attribute.String;
-    url: Attribute.String;
     published_date: Attribute.Date;
     volumn: Attribute.String;
     number: Attribute.String;
@@ -21,16 +36,17 @@ export interface JournalJournal extends Schema.Component {
         'October - December'
       ]
     >;
-    tags: Attribute.Relation<'journal.journal', 'oneToMany', 'api::tag.tag'>;
     uploadfiles: Attribute.Media;
     year: Attribute.String;
     isn: Attribute.Text;
-    title_markdown: Attribute.RichText;
-    title_th: Attribute.String;
-    title_markdown_th: Attribute.RichText;
-    months_th: Attribute.Enumeration<['month']>;
-    month: Attribute.String;
-    month_th: Attribute.String;
+    months_th: Attribute.Enumeration<
+      [
+        'January | \u0E21\u0E01\u0E23\u0E32\u0E04\u0E21 - \u0E21\u0E35\u0E19\u0E32\u0E04\u0E21',
+        'April | \u0E40\u0E21\u0E29\u0E32\u0E22\u0E19 - \u0E21\u0E34\u0E16\u0E38\u0E19\u0E32\u0E22\u0E19',
+        'July | \u0E01\u0E23\u0E01\u0E0E\u0E32\u0E04\u0E21 - \u0E01\u0E31\u0E19\u0E22\u0E32\u0E22\u0E19',
+        'October | \u0E15\u0E38\u0E25\u0E32\u0E04\u0E21 - \u0E18\u0E31\u0E19\u0E27\u0E32\u0E04\u0E21'
+      ]
+    >;
   };
 }
 
@@ -62,6 +78,7 @@ export interface YearYears extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'article.articles': ArticleArticles;
       'journal.journal': JournalJournal;
       'role.roles': RoleRoles;
       'year.years': YearYears;

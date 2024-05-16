@@ -6,15 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "author": {
-      "type": "string"
-    },
-    "url": {
-      "type": "string"
-    },
     "published_date": {
       "type": "date"
     },
@@ -33,11 +24,6 @@
         "October - December"
       ]
     },
-    "tags": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tag.tag"
-    },
     "uploadfiles": {
       "type": "media",
       "multiple": false,
@@ -55,26 +41,14 @@
     "isn": {
       "type": "text"
     },
-    "title_markdown": {
-      "type": "richtext"
-    },
-    "title_th": {
-      "type": "string"
-    },
-    "title_markdown_th": {
-      "type": "richtext"
-    },
     "months_th": {
       "type": "enumeration",
       "enum": [
-        "month"
+        "January | มกราคม - มีนาคม",
+        "April | เมษายน - มิถุนายน",
+        "July | กรกฎาคม - กันยายน",
+        "October | ตุลาคม - ธันวาคม"
       ]
-    },
-    "month": {
-      "type": "string"
-    },
-    "month_th": {
-      "type": "string"
     }
   }
 }
