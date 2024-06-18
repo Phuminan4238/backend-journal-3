@@ -966,7 +966,7 @@ export interface ApiPolicyPolicy extends Schema.CollectionType {
   info: {
     singularName: 'policy';
     pluralName: 'policies';
-    displayName: 'Policy';
+    displayName: 'About';
     description: '';
   };
   options: {
