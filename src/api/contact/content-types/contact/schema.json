@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "topic": {
+      "type": "string"
+    },
+    "header_en": {
+      "type": "string"
+    },
+    "content_en": {
+      "type": "text"
+    },
+    "content_markdown": {
+      "type": "richtext"
+    },
+    "header_th": {
+      "type": "string"
+    },
+    "content_th": {
+      "type": "text"
+    },
+    "content_markdown_th": {
+      "type": "richtext"
+    },
+    "topic_th": {
+      "type": "string"
+    },
+    "issn": {
+      "type": "string"
+    }
+  }
+}

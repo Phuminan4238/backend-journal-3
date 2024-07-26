@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_journal_journals",
+  "info": {
+    "displayName": "Journal",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "published_date": {
+      "type": "date"
+    },
+    "volumn": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    },
+    "months": {
+      "type": "enumeration",
+      "enum": [
+        "January - March",
+        "April - June",
+        "July - September",
+        "October - December"
+      ]
+    },
+    "uploadfiles": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "year": {
+      "type": "string"
+    },
+    "isn": {
+      "type": "text"
+    },
+    "months_th": {
+      "type": "enumeration",
+      "enum": [
+        "January | มกราคม - มีนาคม",
+        "April | เมษายน - มิถุนายน",
+        "July | กรกฎาคม - กันยายน",
+        "October | ตุลาคม - ธันวาคม"
+      ]
+    }
+  }
+}
