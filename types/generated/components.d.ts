@@ -10,11 +10,10 @@ export interface ArticleArticles extends Schema.Component {
     title: Attribute.String;
     title_th: Attribute.String;
     author_th: Attribute.String;
-    download: Attribute.String;
-    number: Attribute.Integer;
     url: Attribute.String;
     author_en: Attribute.String;
-    keywords: Attribute.Enumeration<['morning', 'noon evening']>;
+    download: Attribute.Integer;
+    keywords: Attribute.String;
   };
 }
 

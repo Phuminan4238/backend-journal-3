@@ -15,24 +15,17 @@
     "author_th": {
       "type": "string"
     },
-    "download": {
-      "type": "string"
-    },
-    "number": {
-      "type": "integer"
-    },
     "url": {
       "type": "string"
     },
     "author_en": {
       "type": "string"
     },
+    "download": {
+      "type": "integer"
+    },
     "keywords": {
-      "type": "enumeration",
-      "enum": [
-        "morning",
-        "noon evening"
-      ]
+      "type": "string"
     }
   }
 }
