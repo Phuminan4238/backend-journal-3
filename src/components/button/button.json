@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_button_buttons",
+  "info": {
+    "displayName": "Button",
+    "icon": "arrowDown"
+  },
+  "options": {},
+  "attributes": {
+    "download_word": {
+      "type": "string"
+    },
+    "download_pdf": {
+      "type": "string"
+    },
+    "url": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

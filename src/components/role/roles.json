@@ -9,9 +9,6 @@
     "header_role": {
       "type": "string"
     },
-    "content_role": {
-      "type": "text"
-    },
     "content_markdown_en": {
       "type": "richtext"
     },

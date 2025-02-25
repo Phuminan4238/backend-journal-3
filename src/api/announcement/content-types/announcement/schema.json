@@ -12,23 +12,29 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "header": {
-      "type": "string"
-    },
-    "body": {
-      "type": "string"
-    },
-    "content": {
+    "header_en": {
       "type": "string"
     },
     "url": {
       "type": "string"
     },
-    "content2": {
+    "header_th": {
       "type": "string"
     },
-    "content3": {
-      "type": "string"
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "red",
+        "green",
+        "blue",
+        "orange"
+      ]
+    },
+    "content_en": {
+      "type": "richtext"
+    },
+    "content_th": {
+      "type": "richtext"
     }
   }
 }

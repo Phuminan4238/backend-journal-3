@@ -15,9 +15,6 @@
     "header_en": {
       "type": "string"
     },
-    "guideline_en": {
-      "type": "richtext"
-    },
     "topic": {
       "type": "string"
     },
@@ -29,22 +26,10 @@
     "download_en_1": {
       "type": "string"
     },
-    "url_1": {
-      "type": "string"
-    },
     "header_th": {
       "type": "string"
     },
     "download_th_1": {
-      "type": "string"
-    },
-    "content_en": {
-      "type": "string"
-    },
-    "content_th": {
-      "type": "string"
-    },
-    "content_th_2": {
       "type": "string"
     },
     "download_en_2": {
@@ -53,8 +38,43 @@
     "download_th_2": {
       "type": "string"
     },
-    "guideline_th": {
-      "type": "richtext"
+    "table": {
+      "type": "component",
+      "repeatable": false,
+      "component": "table.table"
+    },
+    "subscription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subscription.subscription"
+    },
+    "uploadfile_1": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "uploadfile_2": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "url_1": {
+      "type": "string"
+    },
+    "url_2": {
+      "type": "string"
     }
   }
 }

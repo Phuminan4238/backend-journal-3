@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_subscription_subscriptions",
+  "info": {
+    "displayName": "Subscription",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content_th_1": {
+      "type": "text"
+    },
+    "content_th_2": {
+      "type": "text"
+    },
+    "download_th": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "uploadfile": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

@@ -17,6 +17,19 @@ export interface ArticleArticles extends Schema.Component {
   };
 }
 
+export interface ButtonButton extends Schema.Component {
+  collectionName: 'components_button_buttons';
+  info: {
+    displayName: 'Button';
+    icon: 'arrowDown';
+  };
+  attributes: {
+    download_word: Attribute.String;
+    download_pdf: Attribute.String;
+    url: Attribute.Media;
+  };
+}
+
 export interface JournalJournal extends Schema.Component {
   collectionName: 'components_journal_journals';
   info: {
@@ -57,10 +70,36 @@ export interface RoleRoles extends Schema.Component {
   };
   attributes: {
     header_role: Attribute.String;
-    content_role: Attribute.Text;
     content_markdown_en: Attribute.RichText;
     content_markdown_th: Attribute.RichText;
     header_role_th: Attribute.String;
+  };
+}
+
+export interface SubscriptionSubscription extends Schema.Component {
+  collectionName: 'components_subscription_subscriptions';
+  info: {
+    displayName: 'Subscription';
+    description: '';
+  };
+  attributes: {
+    content_th_1: Attribute.Text;
+    content_th_2: Attribute.Text;
+    download_th: Attribute.String;
+    url: Attribute.String;
+    uploadfile: Attribute.Media;
+  };
+}
+
+export interface TableTable extends Schema.Component {
+  collectionName: 'components_table_tables';
+  info: {
+    displayName: 'Table';
+    icon: 'grid';
+  };
+  attributes: {
+    guideline_en: Attribute.RichText;
+    guideline_th: Attribute.RichText;
   };
 }
 
@@ -78,8 +117,11 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'article.articles': ArticleArticles;
+      'button.button': ButtonButton;
       'journal.journal': JournalJournal;
       'role.roles': RoleRoles;
+      'subscription.subscription': SubscriptionSubscription;
+      'table.table': TableTable;
       'year.years': YearYears;
     }
   }

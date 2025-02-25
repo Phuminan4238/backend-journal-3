@@ -780,12 +780,12 @@ export interface ApiAnnouncementAnnouncement extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    header: Attribute.String;
-    body: Attribute.String;
-    content: Attribute.String;
+    header_en: Attribute.String;
     url: Attribute.String;
-    content2: Attribute.String;
-    content3: Attribute.String;
+    header_th: Attribute.String;
+    color: Attribute.Enumeration<['red', 'green', 'blue', 'orange']>;
+    content_en: Attribute.RichText;
+    content_th: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -856,19 +856,19 @@ export interface ApiGuidelineGuideline extends Schema.CollectionType {
   };
   attributes: {
     header_en: Attribute.String;
-    guideline_en: Attribute.RichText;
     topic: Attribute.String;
     role: Attribute.Component<'role.roles', true>;
     download_en_1: Attribute.String;
-    url_1: Attribute.String;
     header_th: Attribute.String;
     download_th_1: Attribute.String;
-    content_en: Attribute.String;
-    content_th: Attribute.String;
-    content_th_2: Attribute.String;
     download_en_2: Attribute.String;
     download_th_2: Attribute.String;
-    guideline_th: Attribute.RichText;
+    table: Attribute.Component<'table.table'>;
+    subscription: Attribute.Component<'subscription.subscription'>;
+    uploadfile_1: Attribute.Media;
+    uploadfile_2: Attribute.Media;
+    url_1: Attribute.String;
+    url_2: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
